@@ -11,13 +11,11 @@ import javax.persistence.Table;
 import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 
-import org.hibernate.validator.constraints.URL;
-
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 
 @Entity
-@Table(name = "tb_temas")
-public class Temas {
+@Table(name = "tb_categorias")
+public class Categorias {
 
 	@Id
 	@GeneratedValue
@@ -31,12 +29,10 @@ public class Temas {
 	@Size(min = 4, max = 255, message = "O campo DESCRIÇÃO deve ter entre 4 e 255 caracteres")
 	private String descricao;
 
-	@NotNull(message = "O campo ÍCONE é obrigatório")
-	@URL(message = "O campo ÍCONE precisa ser uma URL")
 	private String icone;
 
-	@OneToMany(mappedBy = "tema", cascade = CascadeType.ALL)
-	@JsonIgnoreProperties("tema")
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@JsonIgnoreProperties("categoria")
 	private List<Postagens> postagens;
 
 	public long getId() {

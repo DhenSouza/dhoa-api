@@ -15,40 +15,40 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import com.hardtech.doabookapi.models.Temas;
-import com.hardtech.doabookapi.repositories.TemasRepository;
+import com.hardtech.doabookapi.models.Categorias;
+import com.hardtech.doabookapi.repositories.CategoriasRepository;
 
 @RestController
 @CrossOrigin("*")
-@RequestMapping(value = "/temas")
-public class TemasController {
+@RequestMapping(value = "/categorias")
+public class CategoriasController {
 
 	@Autowired
-	private TemasRepository repository;
+	private CategoriasRepository repository;
 	
 	@GetMapping
-	public ResponseEntity<List<Temas>> getAll() {
+	public ResponseEntity<List<Categorias>> getAll() {
 		return ResponseEntity.ok(repository.findAll());
 	}
 	
 	@GetMapping("/{id}")
-	public ResponseEntity<Temas> getById(@PathVariable long id){
+	public ResponseEntity<Categorias> getById(@PathVariable long id){
 		return repository.findById(id).map(obj -> ResponseEntity.ok(obj)).orElse(ResponseEntity.notFound().build());
 	}
 	
 	@GetMapping("/nome/{nome}")
-	public ResponseEntity<List<Temas>> getByName(@PathVariable String nome){
+	public ResponseEntity<List<Categorias>> getByName(@PathVariable String nome){
 		return ResponseEntity.ok(repository.findAllByNomeContainingIgnoreCase(nome));
 	}
 	
 	@PostMapping
-	public ResponseEntity<Temas> post (@RequestBody Temas tema){
-		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(tema));
+	public ResponseEntity<Categorias> post (@RequestBody Categorias categorias){
+		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(categorias));
 	}
 	
 	@PutMapping
-	public ResponseEntity<Temas> put (@RequestBody Temas tema){
-		return ResponseEntity.ok(repository.save(tema));
+	public ResponseEntity<Categorias> put (@RequestBody Categorias categorias){
+		return ResponseEntity.ok(repository.save(categorias));
 	}
 	
 	@DeleteMapping("/{id}")

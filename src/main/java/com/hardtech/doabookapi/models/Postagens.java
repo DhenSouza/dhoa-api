@@ -24,14 +24,17 @@ public class Postagens {
 	@Id
 	@GeneratedValue
 	private long id;
-	
-	@NotNull(message = "O campo tipoPostagem é obrigatório")
-	@Size(min=0, max=10, message = "O campo tipoPostagem deve ter entre 0 e 10 caracteres")
-	private String tipoPostagem; 
 
-	/*@NotNull(message = "O campo TITULO é obrigatório")
-	@Size(min = 4, max = 100, message = "O campo TITULO deve ter entre 4 e 100 caracteres")
-	private String titulo;*/
+	@NotNull(message = "O campo tipoPostagem é obrigatório")
+	@Size(min = 0, max = 10, message = "O campo tipoPostagem deve ter entre 0 e 10 caracteres")
+	private String tipoPostagem;
+
+	/*
+	 * @NotNull(message = "O campo TITULO é obrigatório")
+	 * 
+	 * @Size(min = 4, max = 100, message =
+	 * "O campo TITULO deve ter entre 4 e 100 caracteres") private String titulo;
+	 */
 
 	@NotNull(message = "O campo TEXTO é obrigatório")
 	@Size(min = 4, max = 255, message = "O campo TEXTO deve ter entre 4 e 255 caracteres")
@@ -50,7 +53,7 @@ public class Postagens {
 
 	@ManyToOne
 	@JsonIgnoreProperties("postagens")
-	private Temas tema;
+	private Categorias categoria;
 
 	@ManyToOne
 	@JsonIgnoreProperties("postagens")
@@ -64,13 +67,11 @@ public class Postagens {
 		this.id = id;
 	}
 
-	/*public String getTitulo() {
-		return titulo;
-	}
-
-	public void setTitulo(String titulo) {
-		this.titulo = titulo;
-	}*/
+	/*
+	 * public String getTitulo() { return titulo; }
+	 * 
+	 * public void setTitulo(String titulo) { this.titulo = titulo; }
+	 */
 
 	public String getTexto() {
 		return texto;
@@ -96,12 +97,12 @@ public class Postagens {
 		this.contatoUrl = contatoUrl;
 	}
 
-	public Temas getTema() {
-		return tema;
+	public Categorias getCategoria() {
+		return categoria;
 	}
 
-	public void setTema(Temas tema) {
-		this.tema = tema;
+	public void setCategoria(Categorias categoria) {
+		this.categoria = categoria;
 	}
 
 	public Usuarios getUsuario() {
