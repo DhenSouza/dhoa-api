@@ -29,9 +29,9 @@ public class Postagens {
 	@Size(min=0, max=10, message = "O campo tipoPostagem deve ter entre 0 e 10 caracteres")
 	private String tipoPostagem; 
 
-	@NotNull(message = "O campo TITULO é obrigatório")
+	/*@NotNull(message = "O campo TITULO é obrigatório")
 	@Size(min = 4, max = 100, message = "O campo TITULO deve ter entre 4 e 100 caracteres")
-	private String titulo;
+	private String titulo;*/
 
 	@NotNull(message = "O campo TEXTO é obrigatório")
 	@Size(min = 4, max = 255, message = "O campo TEXTO deve ter entre 4 e 255 caracteres")
@@ -64,13 +64,13 @@ public class Postagens {
 		this.id = id;
 	}
 
-	public String getTitulo() {
+	/*public String getTitulo() {
 		return titulo;
 	}
 
 	public void setTitulo(String titulo) {
 		this.titulo = titulo;
-	}
+	}*/
 
 	public String getTexto() {
 		return texto;
