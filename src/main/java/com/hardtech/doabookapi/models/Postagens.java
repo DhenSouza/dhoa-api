@@ -45,7 +45,6 @@ public class Postagens {
 
 	@NotNull(message = "O campo CONTATO_URL é obrigatorio")
 	@NotEmpty(message = "O campo CONTATO_URL não pode ser vazio")
-	@URL(message = "O campo contato_URL precisa ser uma URL")
 	private String contatoUrl;
 
 	@Temporal(TemporalType.TIMESTAMP)
