@@ -31,7 +31,7 @@ public class Categorias {
 
 	private String icone;
 
-	@OneToMany(mappedBy = "categoria", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "categoria", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("categoria")
 	private List<Postagens> postagens;
 

@@ -41,7 +41,7 @@ public class Usuarios {
 	
 	private String tipoUsuario = "normal";
 
-	@OneToMany(mappedBy = "usuario", cascade = CascadeType.ALL)
+	@OneToMany(mappedBy = "usuario", cascade = CascadeType.REMOVE)
 	@JsonIgnoreProperties("postagens")
 	private List<Postagens> postagens;
 
