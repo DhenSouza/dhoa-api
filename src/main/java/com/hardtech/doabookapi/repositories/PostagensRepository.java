@@ -9,5 +9,7 @@ import com.hardtech.doabookapi.models.Postagens;
 public interface PostagensRepository extends JpaRepository<Postagens, Long> {
 	//public List<Postagens> findAllByTituloContainingIgnoreCase(String titulo);
 
+	public List<Postagens> findAllByTipoPostagemContainingIgnoreCase(String tipoPostagem );
+	public List<Postagens> findAllByCategoriaId(Long idCategoria);
 	public List<Postagens> findAllByTextoContainingIgnoreCase(String texto);
 }

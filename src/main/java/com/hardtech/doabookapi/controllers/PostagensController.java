@@ -45,7 +45,18 @@ public class PostagensController {
 	public ResponseEntity<List<Postagens>> getByTexto(@PathVariable String texto) {
 		return ResponseEntity.ok(repository.findAllByTextoContainingIgnoreCase(texto));
 	}
-
+	
+	@GetMapping("/categoria/{id}")
+	public ResponseEntity<List<Postagens>> getByCategoriaId(@PathVariable long id) {
+		return ResponseEntity.ok(repository.findAllByCategoriaId(id));
+	}
+	
+	
+	@GetMapping("/tipo/{tipo}")
+	public ResponseEntity<List<Postagens>> getByTipo(@PathVariable String tipo) {
+		return ResponseEntity.ok(repository.findAllByTipoPostagemContainingIgnoreCase(tipo));
+	}
+	
 	@PostMapping
 	public ResponseEntity<Postagens> post(@RequestBody Postagens postagem) {
 		return ResponseEntity.status(HttpStatus.CREATED).body(repository.save(postagem));
