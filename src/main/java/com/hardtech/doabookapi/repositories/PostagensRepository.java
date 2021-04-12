@@ -18,6 +18,6 @@ public interface PostagensRepository extends JpaRepository<Postagens, Long> {
 	//@Query(value = "SELECT * FROM dhoa.tb_postagens WHERE usuario_id = :idUsuario AND categoria_id = :idCategoria", nativeQuery = true )
 	//public List<Postagens> findAllByUsuarioCategoria(@Param("idUsuario") Long idUsuario, @Param("idCategoria") Long idCategoria);
 	
-	@Query(value = "SELECT * FROM dhoa.tb_postagens WHERE usuario_id = :idUsuario ", nativeQuery = true )
+	@Query(value = "SELECT * FROM heroku_3e709c48315fce6.tb_postagens WHERE usuario_id = :idUsuario ", nativeQuery = true )
 	public List<Postagens> findAllByUsuario(@Param("idUsuario") Long idUsuario);
 }
