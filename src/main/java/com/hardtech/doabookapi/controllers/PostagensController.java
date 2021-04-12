@@ -51,6 +51,18 @@ public class PostagensController {
 		return ResponseEntity.ok(repository.findAllByCategoriaId(id));
 	}
 	
+	/*@GetMapping("/usuario/{uid}/categoria/{cid}")
+	public ResponseEntity<List<Postagens>> getByUsuarioCategoria(@PathVariable Long uid, Long cid) {
+		return ResponseEntity.ok(repository.findAllByUsuarioCategoria(uid, cid));
+	}*/
+	
+	@GetMapping("/usuario/{uid}")
+	public ResponseEntity<List<Postagens>> getByUsuario(@PathVariable Long uid) {
+		return ResponseEntity.ok(repository.findAllByUsuario(uid));
+	}
+	
+	
+	
 	
 	@GetMapping("/tipo/{tipo}")
 	public ResponseEntity<List<Postagens>> getByTipo(@PathVariable String tipo) {
