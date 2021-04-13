@@ -56,9 +56,14 @@ public class PostagensController {
 		return ResponseEntity.ok(repository.findAllByUsuarioCategoria(uid, cid));
 	}*/
 	
-	@GetMapping("/usuario/{uid}")
+	@GetMapping("/usuario/{usuarioId}")
 	public ResponseEntity<List<Postagens>> getByUsuario(@PathVariable Long uid) {
 		return ResponseEntity.ok(repository.findAllByUsuario(uid));
+	}
+	
+	@GetMapping("/usuario/{usuarioId}/categoria/{categoriaId}")
+	public ResponseEntity<List<Postagens>> getByUsuarioIdAndCategoriaId(@PathVariable Long usuarioId, Long categoriaId) {
+		return ResponseEntity.ok(repository.findAllByUsuarioIdAndCategoriaId(usuarioId, categoriaId));
 	}
 	
 	

@@ -20,4 +20,6 @@ public interface PostagensRepository extends JpaRepository<Postagens, Long> {
 	
 	@Query(value = "SELECT * FROM heroku_3e709c48315fce6.tb_postagens WHERE usuario_id = :idUsuario ", nativeQuery = true )
 	public List<Postagens> findAllByUsuario(@Param("idUsuario") Long idUsuario);
+	
+	public List<Postagens> findAllByUsuarioIdAndCategoriaId(Long idUsuario, Long idCategoria);
 }
